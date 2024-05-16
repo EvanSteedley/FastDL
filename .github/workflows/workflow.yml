@@ -12,16 +12,16 @@ jobs:
           ref: main    #checkout different branch
       - name: "[Deploy] Delete existing directory listings"
         run: rm -rf **/index.html
-        working-directory: KF2Zedternal
+        working-directory: FastDL
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v4.0.0
         with:
-          FOLDER: KF2Zedternal      #directory to generate index
+          FOLDER: FastDL      #directory to generate index
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'KF2Zedternal'      # upload generated folder
+          path: 'FastDL'      # upload generated folder
   
   deploy:
     needs: pages-directory-listing
