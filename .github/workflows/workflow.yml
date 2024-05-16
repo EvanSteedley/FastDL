@@ -7,19 +7,21 @@ jobs:
     name: Directory Listings Index
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          ref: dummy-data    #checkout different branch
-
+          ref: main    #checkout different branch
+      - name: "[Deploy] Delete existing directory listings"
+        run: rm -rf **/index.html
+        working-directory: KF2Zedternal
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v4.0.0
         with:
-          FOLDER: data      #directory to generate index
+          FOLDER: KF2Zedternal      #directory to generate index
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'data'      # upload generated folder
+          path: 'KF2Zedternal'      # upload generated folder
   
   deploy:
     needs: pages-directory-listing
